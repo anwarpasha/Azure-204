@@ -1,1 +1,18 @@
+Console paste it the Console App and update the FunctionApp URL
+
+internal class Program
+{
+    static void Main(string[] args)
+    {
+        triggerfunc();
+        Console.ReadLine();
+    }
+    private async static Task triggerfunc()
+    {
+       var cl= new HttpClient();
+        var resp = await cl.GetAsync("http://localhost:7050/api/Function1");//FunctionApp URL
+        var result= await resp.Content.ReadAsStringAsync();
+        Console.WriteLine(result);
+    }
+}
 
